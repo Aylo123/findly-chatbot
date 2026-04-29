@@ -5,7 +5,9 @@ from app.routes import chat
 import os
 from app.routes import auth
 app.include_router(auth.router)
-
+@app.get("/test")
+def test():
+    return {"ok": True}
 # Base directory (deploy үед хэрэгтэй)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
