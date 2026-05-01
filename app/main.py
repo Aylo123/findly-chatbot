@@ -3,7 +3,6 @@ from fastapi.responses import HTMLResponse
 from fastapi.staticfiles import StaticFiles
 from app.routes import chat
 import os
-from app.routes import auth
 
 # Base directory (deploy үед хэрэгтэй)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
