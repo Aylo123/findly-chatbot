@@ -1,5 +1,6 @@
 import json
 from rapidfuzz import fuzz
+import random
 
 
 def load_data():
@@ -7,7 +8,7 @@ def load_data():
         return json.load(f)
 
 
-def detect_intent(query: str):
+def smart_match(query: str):
     data = load_data()
     query = query.lower().strip()
 
@@ -15,7 +16,7 @@ def detect_intent(query: str):
     best_item = None
 
     for item in data:
-        for pattern in item["patterns"]:
+        for pattern in item.get("patterns", []):
             pattern = pattern.lower().strip()
 
             score = fuzz.token_set_ratio(query, pattern)
@@ -27,7 +28,10 @@ def detect_intent(query: str):
                 best_score = score
                 best_item = item
 
-    if best_score > 65:
+    if best_score > 65 and best_item:
+        # 🔥 dynamic response support
+        if "responses" in best_item:
+            return random.choice(best_item["responses"])
         return best_item["response"]
 
-    return " Уучлаарай, Мэдээлэл олдсонгүй 🫂"
+    return "❌ Уучлаарай, мэдээлэл олдсонгүй"
