@@ -72,8 +72,8 @@ def smart_match(query: str) -> str:
     # ── No match: log for knowledge-base improvement ────────────
     logging.info("UNMATCHED | score=%d | query=%s", best_score, query)
     return (
-        "❌ Уучлаарай, таны асуултыг ойлгосонгүй.\n\n"
-        "Та дараах байдлаар холбогдоно уу:\n"
-        "📞 7507-3000\n"
+        "❌ Уучлаарай, мэдээлэл олдсонгүй.\n\n"
         "Эсвэл асуултаа дахин өөрөөр бичиж үзнэ үү."
+        "Та гомдлын мэргэжилтэнд хандаж мэдээлэл нэмүүлэх боломжтой.\n"
+       
     )
