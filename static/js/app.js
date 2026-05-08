@@ -54,9 +54,7 @@ document.addEventListener("DOMContentLoaded", () => {
     ts.textContent = nowTime();
 
     const wrapper = document.createElement("div");
-    wrapper.style.display = "flex";
-    wrapper.style.flexDirection = "column";
-    wrapper.style.maxWidth = "80%";
+    wrapper.className = "msg-wrapper";
 
     if (role === "bot") {
       // Bot avatar

@@ -210,6 +210,13 @@ body {
 .chat::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.15); border-radius: 4px; }
 
 /* ── Messages ─────────────────────────────────── */
+.msg-wrapper {
+  display: flex;
+  flex-direction: column;
+  max-width: 78%;
+  min-width: 80px;
+}
+
 .msg-row {
   display: flex;
   align-items: flex-end;
@@ -233,12 +240,15 @@ body {
 }
 
 .bubble {
-  max-width: 78%;
+  max-width: 100%;
+  min-width: 60px;
   padding: 11px 15px;
   border-radius: var(--radius-msg);
   font-size: 14px;
   line-height: 1.65;
   word-break: break-word;
+  overflow-wrap: break-word;
+  white-space: normal;
 }
 
 /* User bubble */
